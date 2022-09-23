@@ -24,7 +24,7 @@ def pdftotext(m):
 
     currentPageNumber = 0
     text = ''
-
+    print(pdfFileReader.getFields())
     # Loop in all the pdf pages.
     while(currentPageNumber < num_pages ):
 
@@ -48,6 +48,9 @@ if __name__ == '__main__':
       textinput = pdftotext('Sample.pdf')
     else:
       print("File not support")
+    print(textinput[0:10])
+
+
 import spacy
 import en_core_web_sm
 from spacy.matcher import Matcher
@@ -68,11 +71,18 @@ def extract_name(resume_text):
     matcher.add('NAME', [pattern])
     
     matches = matcher(nlp_text)
-    
+    print(type(matches))
+    for x in range(len(matches)):
+        print(matches[x])
     for match_id, start, end in matches:
+        # print(start,end,match_id)
+        # print(nlp_text)
         span = nlp_text[start:end]
+        print(span)
         return span.text
 print('Name: ',extract_name(textinput))
+
+
 import re
 from nltk.corpus import stopwords
 
@@ -136,4 +146,5 @@ def extract_skills(resume_text):
         if token in skills:
             skillset.append(token)
     return skillset
+    
 print ('Skills',extract_skills(textinput))

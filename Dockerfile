@@ -14,14 +14,15 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 
 RUN pip install --no-cache-dir --upgrade pip \
-  && pip install --no-cache-dir -r requirements.txt
+  && pip install --no-cache-dir -r requirements.txt &&  pip install collection
   
 RUN python -m spacy download en_core_web_sm
 RUN python -m nltk.downloader stopwords
 COPY . .
 
 COPY Sample.pdf ./
+WORKDIR /hackathons
 
-CMD [ "python3", "./print.py" ]
+CMD [ "python3", "./print_new.py" ]
 
 

@@ -1,0 +1,2 @@
+name,phone,email,qualification,skills,frequency,experince
+Charles K.,+9018309948344,charlesksorensen@gmail.com,"MS,","Python,Python,Python,Django,Python,Python,SQL,JavaScript,SQL,Django,Python,","Counter({'Python': 6, 'Django': 2, 'SQL': 2, 'JavaScript': 1})","{'Python Developer': ['March 2015', 'present'], 'Data Scientist': ['April 2012', 'February 2015']}"
